@@ -210,7 +210,8 @@ with col2:
             )
         
         with col2:
-            fig = go.Figure(data=[go.Gauge(
+            fig = go.Figure()
+            fig.add_trace(go.Indicator(
                 mode="gauge+number+delta",
                 value=prediction_proba * 100,
                 title={'text': "Stroke Risk (%)"},
@@ -229,7 +230,7 @@ with col2:
                         'value': 90
                     }
                 }
-            )])
+            ))
             fig.update_layout(height=300, margin=dict(l=0, r=0, t=30, b=0))
             st.plotly_chart(fig, use_container_width=True)
         
